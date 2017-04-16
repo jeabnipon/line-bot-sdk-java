@@ -44,7 +44,7 @@ public class EchoApplication {
 	//return new TextMessage("test");
 
 	final BotApiResponse apiResponse = lineMessagingService
-						.replyMessage (new reply message (event.getReplyToken() Collection.singletonList(new TextMessage(event.getSource().getUserId()))))
+						.replyMessage (new reply message (event.getReplyToken() Collection.singletonList(new TextMessage(event.getSource().getUserId()))));
 						.execute().body();
     }
 
