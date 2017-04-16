@@ -94,12 +94,16 @@ public class EchoApplication {
     private void reply(String replyToken, Message message) {
         reply(replyToken, Collections.singletonList(message));
     }
-/*
+
     private void reply(String replyToken, List<Message> messages) {
-	BotApiResponse apiResponse = lineMessagingClient
+	try {
+            BotApiResponse apiResponse = lineMessagingClient
                     .replyMessage(new ReplyMessage(replyToken, messages))
                     .get();
-
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+/*
         try {
             BotApiResponse apiResponse = lineMessagingClient
                     .replyMessage(new ReplyMessage(replyToken, messages))
@@ -108,9 +112,9 @@ public class EchoApplication {
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
-
-    }
 */
+    }
+
     private void replyText(String replyToken,String message) {
         if (replyToken.isEmpty()) {
             throw new IllegalArgumentException("replyToken must not be empty");
