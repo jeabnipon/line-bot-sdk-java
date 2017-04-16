@@ -57,8 +57,8 @@ public class EchoApplication {
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("event: " + event);
         //return new TextMessage(event.getMessage().getText());
-	String userId = event.getSource().getUserId();
-	return new TextMessage("test");
+	//String userId = event.getSource().getUserId();
+	return new TextMessage(event.getSource().getUserId());
 
 	//TextMessageContent message = event.getMessage();
 	
