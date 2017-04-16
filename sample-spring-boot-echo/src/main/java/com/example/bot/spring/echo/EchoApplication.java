@@ -82,6 +82,7 @@ public class EchoApplication {
 	    System.out.println("event: " + event);
             break;
 	}
+	return new TextMessage(event.getMessage().getText());
 				
     }
 
