@@ -89,7 +89,7 @@ public class EchoApplication {
                 }
     }
 
-    private void reply(@NonNull String replyToken, @NonNull Message message) {
+    private void reply(String replyToken, Message message) {
         reply(replyToken, Collections.singletonList(message));
     }
 
