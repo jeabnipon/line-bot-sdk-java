@@ -52,7 +52,7 @@ public class EchoApplication {
     @EventMapping
     public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
         TextMessageContent message = event.getMessage();
-        handleTextContent(event.getReplyToken(), event, message);
+//        handleTextContent(event.getReplyToken(), event, message);
 //handleTextContent(String replyToken, Event event, TextMessageContent content)
 	
         String replyToken = event.getReplyToken();
