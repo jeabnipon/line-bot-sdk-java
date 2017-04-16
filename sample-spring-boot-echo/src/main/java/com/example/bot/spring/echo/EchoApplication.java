@@ -58,15 +58,13 @@ public class EchoApplication {
         System.out.println("event: " + event);
         //return new TextMessage(event.getMessage().getText());
 	return new TextMessage("test");
-/*
-	TextMessageContent message = event.getMessage();
-	
-        String replyToken = event.getReplyToken();
-	String text = message.getText();
-	String userId = event.getSource().getUserId();
 
-	return new TextMessage(userId);
-*/
+	//TextMessageContent message = event.getMessage();
+	
+        //String replyToken = event.getReplyToken();
+	//String text = message.getText();
+	String userId = event.getSource().getUserId();
+	//return new TextMessage(userId);
 				
     }
 
