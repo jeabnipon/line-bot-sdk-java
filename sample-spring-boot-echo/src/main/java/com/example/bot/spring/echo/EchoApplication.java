@@ -72,6 +72,7 @@ public class EchoApplication {
 	switch(text){
 	  case "profile" :{
 	    System.out.println("event: " + event);
+            txm = new TextMessage("Profile");
 	    break;
 	  }
 	  case "userid"  :{
@@ -80,6 +81,7 @@ public class EchoApplication {
 	  }
 	  default:
 	    System.out.println("event: " + event);
+            txm = new TextMessage(event.getMessage().getText());
             break;
 	}
 	return txm ;
