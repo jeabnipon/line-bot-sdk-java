@@ -16,11 +16,14 @@
 
 package com.example.bot.spring.echo;
 
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Arrays;
 
 import com.linecorp.bot.client.LineMessagingClient;
 import com.linecorp.bot.client.LineMessagingService;
@@ -29,6 +32,7 @@ import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
 import com.linecorp.bot.model.message.TextMessage;
+import com.linecorp.bot.model.message.Message;
 import com.linecorp.bot.model.response.BotApiResponse;
 
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
@@ -81,7 +85,7 @@ public class EchoApplication {
                 }
     }
 
-    private void reply(@NonNull String replyToken, @NonNull List<Message> messages) {
+    private void reply(String replyToken, List<Message> messages) {
         try {
             BotApiResponse apiResponse = lineMessagingClient
                     .replyMessage(new ReplyMessage(replyToken, messages))
@@ -92,12 +96,12 @@ public class EchoApplication {
         }
     }
 
-    private void replyText(@NonNull String replyToken, @NonNull String message) {
+    private void replyText(String replyToken,String message) {
         if (replyToken.isEmpty()) {
             throw new IllegalArgumentException("replyToken must not be empty");
         }
         if (message.length() > 1000) {
-            message = message.substring(0, 1000 - 2) + "……";
+            message = message.substring(0, 1000 - 2) + "....";
         }
         this.reply(replyToken, new TextMessage(message));
     }
