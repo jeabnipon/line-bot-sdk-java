@@ -20,9 +20,6 @@ package com.example.bot.spring.echo;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.concurrent.ExecutionException;
 
 import org.springframework.beans.factory.annotation.Autowired;
