@@ -59,16 +59,16 @@ public class EchoApplication {
         //return new TextMessage(event.getMessage().getText());
 	//String userId = event.getSource().getUserId();
 
-	//String text = message.getText();
+	//String text = String text = message.getText();.getText();
 	//return new TextMessage(event.getSource().getUserId());
 
 	//TextMessageContent message = event.getMessage();
 	
         //String replyToken = event.getReplyToken();
-	
 
 	//return new TextMessage(userId);
-	String text = message.getText();
+
+	String text = event.getMessage().getText();
 	switch(text){
 	  case "profile" :{
 	    System.out.println("event: " + event);
