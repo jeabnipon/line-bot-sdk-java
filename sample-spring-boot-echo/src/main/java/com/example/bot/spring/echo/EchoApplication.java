@@ -35,7 +35,7 @@ public class EchoApplication {
         SpringApplication.run(EchoApplication.class, args);
     }
 
-    private LineMessageingService lineMessagingService;
+    private LineMessagingService lineMessagingService;
 
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
