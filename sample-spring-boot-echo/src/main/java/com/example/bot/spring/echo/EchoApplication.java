@@ -58,14 +58,30 @@ public class EchoApplication {
         System.out.println("event: " + event);
         //return new TextMessage(event.getMessage().getText());
 	//String userId = event.getSource().getUserId();
-	return new TextMessage(event.getSource().getUserId());
+
+	//String text = message.getText();
+	//return new TextMessage(event.getSource().getUserId());
 
 	//TextMessageContent message = event.getMessage();
 	
         //String replyToken = event.getReplyToken();
-	//String text = message.getText();
+	
 
 	//return new TextMessage(userId);
+
+	switch(text){
+	  case "profile" :{
+	    System.out.println("event: " + event);
+	    break;
+	  }
+	  case "userid"  :{
+            return new TextMessage(event.getSource().getUserId());
+	    break;
+	  }
+	  default:
+	    System.out.println("event: " + event);
+            break;
+	}
 				
     }
 
