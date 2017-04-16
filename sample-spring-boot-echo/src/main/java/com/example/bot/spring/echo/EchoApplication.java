@@ -63,6 +63,10 @@ public class EchoApplication {
         String replyToken = event.getReplyToken();
 	String text = message.getText();
 	String userId = event.getSource().getUserId();
+
+	this.replyText(replyToken, userId);
+        return;
+/*
                 if (userId != null) {
                     lineMessagingClient
                             .getProfile(userId)
@@ -84,6 +88,7 @@ public class EchoApplication {
                 } else {
                     this.replyText(replyToken, "Bot can't use profile API without user ID");
                 }
+*/
     }
 
     private void reply(String replyToken, Message message) {
