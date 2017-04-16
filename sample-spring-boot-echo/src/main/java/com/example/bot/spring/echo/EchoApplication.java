@@ -115,7 +115,7 @@ public class EchoApplication {
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }
-*/
+
     }
 
     private void replyText(String replyToken,String message) {
@@ -128,7 +128,7 @@ public class EchoApplication {
         this.reply(replyToken, new TextMessage(message));
     }
 
-/*	
+	
     @Autowired
     private LineMessagingService lineMessagingService;
 
