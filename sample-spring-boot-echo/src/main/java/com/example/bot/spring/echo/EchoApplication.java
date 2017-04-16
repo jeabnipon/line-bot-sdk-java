@@ -64,8 +64,10 @@ public class EchoApplication {
 	String text = message.getText();
 	String userId = event.getSource().getUserId();
 
-	this.replyText(replyToken, userId);
-        return;
+	return new TextMessage(userId);
+
+	//this.replyText(replyToken, userId);
+        //return;
 /*
                 if (userId != null) {
                     lineMessagingClient
@@ -91,6 +93,7 @@ public class EchoApplication {
 */
     }
 
+/*
     private void reply(String replyToken, Message message) {
         reply(replyToken, Collections.singletonList(message));
     }
@@ -103,7 +106,7 @@ public class EchoApplication {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-/*
+
         try {
             BotApiResponse apiResponse = lineMessagingClient
                     .replyMessage(new ReplyMessage(replyToken, messages))
