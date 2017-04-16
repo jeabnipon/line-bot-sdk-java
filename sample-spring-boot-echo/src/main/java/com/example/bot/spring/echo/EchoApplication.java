@@ -67,7 +67,7 @@ public class EchoApplication {
         //String replyToken = event.getReplyToken();
 
 	//return new TextMessage(userId);
-	TextMessage txm;
+	TextMessage txm  = new TextMessage(event.getSource().getUserId());
 	String text = event.getMessage().getText();
 	switch(text){
 	  case "profile" :{
