@@ -28,16 +28,24 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
 @SpringBootApplication
 @LineMessageHandler
+
 public class EchoApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(EchoApplication.class, args);
     }
+
+    private LineMessageingService lineMessagingService;
 
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("event: " + event);
         //return new TextMessage(event.getMessage().getText());
-	return new TextMessage("test");
+	//return new TextMessage("test");
+
+	final BotApiResponse apiResponse = lineMessagingService
+						.replyMessage (new reply message (event.getReplyToken() Collection.singletonList(new TextMessage(event.getSource().getUserId()))))
+						.execute().body();
     }
 
     @EventMapping
