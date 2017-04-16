@@ -53,7 +53,24 @@ public class EchoApplication {
     @Autowired
     private LineMessagingClient lineMessagingClient;
 
-    
+    @EventMapping
+    public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
+        System.out.println("event: " + event);
+        //return new TextMessage(event.getMessage().getText());
+	//return new TextMessage("test");
+
+	TextMessageContent message = event.getMessage();
+	
+        String replyToken = event.getReplyToken();
+	String text = message.getText();
+	String userId = event.getSource().getUserId();
+
+	return new TextMessage(userId);
+
+				
+    }
+
+/*    
     @EventMapping
     public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
         TextMessageContent message = event.getMessage();
@@ -68,7 +85,7 @@ public class EchoApplication {
 
 	//this.replyText(replyToken, userId);
         //return;
-/*
+
                 if (userId != null) {
                     lineMessagingClient
                             .getProfile(userId)
@@ -90,10 +107,10 @@ public class EchoApplication {
                 } else {
                     this.replyText(replyToken, "Bot can't use profile API without user ID");
                 }
-*/
+
     }
 
-/*
+
     private void reply(String replyToken, Message message) {
         reply(replyToken, Collections.singletonList(message));
     }
