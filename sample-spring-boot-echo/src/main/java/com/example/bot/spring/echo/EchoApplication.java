@@ -68,7 +68,7 @@ public class EchoApplication {
 	
 
 	//return new TextMessage(userId);
-
+	String text = message.getText();
 	switch(text){
 	  case "profile" :{
 	    System.out.println("event: " + event);
