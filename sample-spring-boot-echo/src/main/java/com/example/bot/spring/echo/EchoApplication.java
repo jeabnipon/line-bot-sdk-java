@@ -75,14 +75,14 @@ public class EchoApplication {
 	    break;
 	  }
 	  case "userid"  :{
-            return new TextMessage(event.getSource().getUserId());
+            TextMessage txm = new TextMessage(event.getSource().getUserId());
 	    break;
 	  }
 	  default:
 	    System.out.println("event: " + event);
             break;
 	}
-	return new TextMessage(event.getMessage().getText());
+	return txm ;
 				
     }
 
