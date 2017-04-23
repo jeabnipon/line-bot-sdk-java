@@ -77,14 +77,14 @@ public class EchoApplication {
 	  case "profile" :{
 	      System.out.println("event: " + event);
 
-          txm = new TextMessage("Profile");
-          /*  lineMessagingClient
+          //txm = new TextMessage("Profile");
+
+            lineMessagingClient
                             .getProfile(userId)
                             .whenComplete((profile, throwable) -> {
-                                    //txm = new TextMessage(profile.getDisplayName())
 
                                         this.reply(
-                                        replyToken,
+                                        event.getReplyToken(),
                                         Arrays.asList(new TextMessage(
                                                               "Display name: " + profile.getDisplayName()),
                                                       new TextMessage("Status message: "
@@ -92,7 +92,7 @@ public class EchoApplication {
 
                                 );
 
-                            });  */
+                            });
 
 	    break;
 	  }
@@ -150,7 +150,7 @@ public class EchoApplication {
 
     }
 
-
+*/
     private void reply(String replyToken, Message message) {
         reply(replyToken, Collections.singletonList(message));
     }
@@ -185,7 +185,7 @@ public class EchoApplication {
         this.reply(replyToken, new TextMessage(message));
     }
 
-	
+/*
     @Autowired
     private LineMessagingService lineMessagingService;
 
