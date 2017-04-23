@@ -169,7 +169,7 @@ public class EchoApplication {
                     .replyMessage(new ReplyMessage(replyToken, messages))
                     .get();
             //log.info("Sent messages: {}", apiResponse);
-        } catch (InterruptedException | ExecutionException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
