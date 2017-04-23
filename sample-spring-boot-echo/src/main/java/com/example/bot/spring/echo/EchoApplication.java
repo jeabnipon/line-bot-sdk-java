@@ -20,8 +20,11 @@ package com.example.bot.spring.echo;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 //import java.util.concurrent.ExecutionException;
 
+import com.linecorp.bot.model.profile.UserProfileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -69,20 +72,39 @@ public class EchoApplication {
 	//return new TextMessage(userId);
 	TextMessage txm  = new TextMessage(event.getSource().getUserId());
 	String text = event.getMessage().getText();
+	String userId = event.getSource().getUserId();
 	switch(text){
 	  case "profile" :{
-	    System.out.println("event: " + event);
-            txm = new TextMessage("Profile");
+	      System.out.println("event: " + event);
+
+          txm = new TextMessage("Profile");
+          /*  lineMessagingClient
+                            .getProfile(userId)
+                            .whenComplete((profile, throwable) -> {
+                                    //txm = new TextMessage(profile.getDisplayName())
+
+                                        this.reply(
+                                        replyToken,
+                                        Arrays.asList(new TextMessage(
+                                                              "Display name: " + profile.getDisplayName()),
+                                                      new TextMessage("Status message: "
+                                                                      + profile.getStatusMessage()))
+
+                                );
+
+                            });  */
+
 	    break;
 	  }
 	  case "userid"  :{
-            txm = new TextMessage(event.getSource().getUserId());
-	    break;
+              txm = new TextMessage(event.getSource().getUserId());
+
+	        break;
 	  }
 	  default:
 	    System.out.println("event: " + event);
             txm = new TextMessage(event.getMessage().getText());
-            break;
+        break;
 	}
 	return txm ;
 				
