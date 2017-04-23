@@ -32,6 +32,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.linecorp.bot.client.LineMessagingClient;
 //import com.linecorp.bot.client.LineMessagingService;
 import com.linecorp.bot.model.ReplyMessage;
+
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
@@ -57,56 +58,55 @@ public class EchoApplication {
     private LineMessagingClient lineMessagingClient;
 
     @EventMapping
-    public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
+    public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event)throws Exception {
         System.out.println("event: " + event);
         //return new TextMessage(event.getMessage().getText());
-	//String userId = event.getSource().getUserId();
+	    //String userId = event.getSource().getUserId();
 
-	//String text = String text = message.getText();.getText();
-	//return new TextMessage(event.getSource().getUserId());
+	    //String text = String text = message.getText();.getText();
+	    //return new TextMessage(event.getSource().getUserId());
 
-	//TextMessageContent message = event.getMessage();
+	    //TextMessageContent message = event.getMessage();
 	
         //String replyToken = event.getReplyToken();
 
-	//return new TextMessage(userId);
-	TextMessage txm  = new TextMessage(event.getSource().getUserId());
-	String text = event.getMessage().getText();
-	String userId = event.getSource().getUserId();
-	switch(text){
-	  case "profile" :{
-	      System.out.println("event: " + event);
+	    //return new TextMessage(userId);
 
-          //txm = new TextMessage("Profile");
+        TextMessage txm  = new TextMessage(event.getSource().getUserId());
+        String text = event.getMessage().getText();
+        String userId = event.getSource().getUserId();
+        switch(text){
+          case "profile" :{
+              System.out.println("event: " + event);
+              //txm = new TextMessage("Profile");
 
-            lineMessagingClient
-                            .getProfile(userId)
-                            .whenComplete((profile, throwable) -> {
+              lineMessagingClient
+                                .getProfile(userId)
+                                .whenComplete((profile, throwable) -> {
 
-                                        this.reply(
-                                        event.getReplyToken(),
-                                        Arrays.asList(new TextMessage(
-                                                              "Display name: " + profile.getDisplayName()),
-                                                      new TextMessage("Status message: "
-                                                                      + profile.getStatusMessage()))
+                                            this.reply(
+                                            event.getReplyToken(),
+                                            Arrays.asList(new TextMessage(
+                                                                  "Display name: " + profile.getDisplayName()),
+                                                          new TextMessage("Status message: "
+                                                                          + profile.getStatusMessage()))
 
-                                );
+                                    );
 
-                            });
+                                });
 
-	    break;
-	  }
-	  case "userid"  :{
+            break;
+          }
+          case "userid"  :{
               txm = new TextMessage(event.getSource().getUserId());
-
-	        break;
-	  }
-	  default:
-	    System.out.println("event: " + event);
+              break;
+          }
+          default:
+            System.out.println("event: " + event);
             txm = new TextMessage(event.getMessage().getText());
-        break;
-	}
-	return txm ;
+            break;
+        }
+        return txm ;
 				
     }
 
