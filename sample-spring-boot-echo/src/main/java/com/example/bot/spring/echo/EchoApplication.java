@@ -24,6 +24,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 //import java.util.concurrent.ExecutionException;
 
+
 import com.linecorp.bot.model.profile.UserProfileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -58,42 +59,27 @@ public class EchoApplication {
     private LineMessagingClient lineMessagingClient;
 
     @EventMapping
+    public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
+        System.out.println("event: " + event);
+        final BotApiResponse apiResponse = lineMessagingClient
+                .replyMessage(new ReplyMessage(event.getReplyToken(),
+                              Collections.singletonList(new TextMessage(event.getSource().getUserId()))))
+                .execute().body();
+        System.out.println("Sent messages: " + apiResponse);
+    }
+
+/*
+    @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event)throws Exception {
         System.out.println("event: " + event);
-        //return new TextMessage(event.getMessage().getText());
-	    //String userId = event.getSource().getUserId();
-
-	    //String text = String text = message.getText();.getText();
-	    //return new TextMessage(event.getSource().getUserId());
-
-	    //TextMessageContent message = event.getMessage();
-	
-        //String replyToken = event.getReplyToken();
-
-	    //return new TextMessage(userId);
 
         TextMessage txm  = new TextMessage(event.getSource().getUserId());
         String text = event.getMessage().getText();
-        String userId = event.getSource().getUserId();
+
         switch(text){
           case "profile" :{
               System.out.println("event: " + event);
-              //txm = new TextMessage("Profile");
-
-              lineMessagingClient
-                                .getProfile(userId)
-                                .whenComplete((profile, throwable) -> {
-
-                                            this.reply(
-                                            event.getReplyToken(),
-                                            Arrays.asList(new TextMessage(
-                                                                  "Display name: " + profile.getDisplayName()),
-                                                          new TextMessage("Status message: "
-                                                                          + profile.getStatusMessage()))
-
-                                    );
-
-                                });
+              txm = new TextMessage("Profile");
 
             break;
           }
@@ -109,7 +95,7 @@ public class EchoApplication {
         return txm ;
 				
     }
-
+*/
 /*    
     @EventMapping
     public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
