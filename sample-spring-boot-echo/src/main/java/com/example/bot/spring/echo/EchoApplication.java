@@ -131,7 +131,7 @@ public class EchoApplication {
 
     }
 
-*/
+
     private void reply(String replyToken, Message message) {
         reply(replyToken, Collections.singletonList(message));
     }
@@ -166,7 +166,7 @@ public class EchoApplication {
         this.reply(replyToken, new TextMessage(message));
     }
 
-/*
+
     @Autowired
     private LineMessagingService lineMessagingService;
 
