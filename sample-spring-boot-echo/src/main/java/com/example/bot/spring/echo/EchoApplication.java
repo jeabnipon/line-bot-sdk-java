@@ -61,11 +61,6 @@ public class EchoApplication {
     @EventMapping
     public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
         System.out.println("event: " + event);
-        final BotApiResponse apiResponse = lineMessagingClient
-                .replyMessage(new ReplyMessage(event.getReplyToken(),
-                              Collections.singletonList(new TextMessage(event.getSource().getUserId()))))
-                .execute().body();
-        System.out.println("Sent messages: " + apiResponse);
     }
 
 /*
