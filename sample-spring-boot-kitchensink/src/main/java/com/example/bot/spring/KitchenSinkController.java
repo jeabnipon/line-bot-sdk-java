@@ -332,7 +332,7 @@ public class KitchenSinkController {
                                 new MessageAction("Say message",
                                         "Rice=米")
                         ));
-                TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonsTemplate);
+                TemplateMessage templateMessage = new TemplateMessage("Menu alt text", buttonsTemplate);
                 this.reply(replyToken, templateMessage);
                 break;
             }
