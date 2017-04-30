@@ -236,7 +236,12 @@ public class KitchenSinkController {
 
     private void handleTextContent(String replyToken, Event event, TextMessageContent content)
             throws Exception {
-        String text = content.getText();
+        String msg = content.getText();
+        String text = msg;
+
+        if(msg.contains("menu") || msg.contains("Menu") || msg.contains("MENU")){
+            text = "menu";
+        }
 
         log.info("Got text message from {}: {}", replyToken, text);
         switch (text) {
@@ -295,8 +300,8 @@ public class KitchenSinkController {
                         "Menu Buttons",
                         "Please select following menu",
                         Arrays.asList(
-                                new URIAction("Go to line.me",
-                                              "https://line.me"),
+                                new URIAction("Go to Siam Kubota website",
+                                              "http://www.siamkubota.co.th/en/leasing"),
                                 new PostbackAction("Say hello1",
                                                    "hello こんにちは"),
                                 new PostbackAction("言 hello2",
@@ -304,6 +309,27 @@ public class KitchenSinkController {
                                                    "hello こんにちは"),
                                 new MessageAction("Say message",
                                                   "Rice=米")
+                        ));
+                TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonsTemplate);
+                this.reply(replyToken, templateMessage);
+                break;
+            }
+            case "menu": {
+                String imageUrl = createUri("/static/buttons/1040.jpg");
+                ButtonsTemplate buttonsTemplate = new ButtonsTemplate(
+                        imageUrl,
+                        "Menu Buttons",
+                        "Please select following menu",
+                        Arrays.asList(
+                                new URIAction("Go to Siam Kubota website",
+                                        "http://www.siamkubota.co.th/en/leasing"),
+                                new PostbackAction("Say hello1",
+                                        "hello こんにちは"),
+                                new PostbackAction("言 hello2",
+                                        "hello こんにちは",
+                                        "hello こんにちは"),
+                                new MessageAction("Say message",
+                                        "Rice=米")
                         ));
                 TemplateMessage templateMessage = new TemplateMessage("Button alt text", buttonsTemplate);
                 this.reply(replyToken, templateMessage);
