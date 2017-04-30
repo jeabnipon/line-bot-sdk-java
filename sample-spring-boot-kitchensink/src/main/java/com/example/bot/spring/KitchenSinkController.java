@@ -300,8 +300,8 @@ public class KitchenSinkController {
                         "Menu Buttons",
                         "Please select following menu",
                         Arrays.asList(
-                                new URIAction("Go to Siam Kubota website",
-                                              "https://line.me"),
+                                new URIAction("Go to line.me",
+                                        "https://line.me"),
                                 new PostbackAction("Say hello1",
                                                    "hello こんにちは"),
                                 new PostbackAction("言 hello2",
@@ -314,7 +314,6 @@ public class KitchenSinkController {
                 this.reply(replyToken, templateMessage);
                 break;
             }
-
             case "menu": {
                 String imageUrl = createUri("/static/buttons/1040.jpg");
                 ButtonsTemplate buttonsTemplate = new ButtonsTemplate(
@@ -322,8 +321,8 @@ public class KitchenSinkController {
                         "Menu Buttons",
                         "Please select following menu",
                         Arrays.asList(
-                                new URIAction("Go to Siam Kubota website",
-                                        "http://www.siamkubota.co.th"),
+                                new URIAction("Go to line.me",
+                                        "https://line.me"),
                                 new PostbackAction("Say hello1",
                                         "hello こんにちは"),
                                 new PostbackAction("言 hello2",
