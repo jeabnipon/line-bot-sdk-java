@@ -322,7 +322,7 @@ public class KitchenSinkController {
                         "Please select following menu",
                         Arrays.asList(
                                 new URIAction("Go to Siam Kubota website",
-                                        "http://www.siamkubota.co.th/en/leasing"),
+                                        "http://www.siamkubota.co.th"),
                                 new PostbackAction("Say hello1",
                                         "hello こんにちは"),
                                 new PostbackAction("言 hello2",
