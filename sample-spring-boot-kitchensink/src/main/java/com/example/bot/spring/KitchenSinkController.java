@@ -237,10 +237,14 @@ public class KitchenSinkController {
     private void handleTextContent(String replyToken, Event event, TextMessageContent content)
             throws Exception {
         String msg = content.getText();
-        String text = msg;
+        String text = msg.toLowerCase();
 
-        if(msg.contains("menu") || msg.contains("Menu") || msg.contains("MENU")){
+        if(msg.contains("menu")){
             text = "menu";
+        }
+
+        if(msg.contains("bill")){
+            text = "bill";
         }
 
         log.info("Got text message from {}: {}", replyToken, text);
@@ -323,6 +327,8 @@ public class KitchenSinkController {
                         Arrays.asList(
                                 new URIAction("Go to biller website",
                                         "http://www.siamkubota.co.th"),
+                                new MessageAction("Show Latest Bill",
+                                                "Show me my bill"),
                                 new PostbackAction("Say hello1",
                                         "hello こんにちは"),
                                 new PostbackAction("言 hello2",
@@ -333,6 +339,14 @@ public class KitchenSinkController {
                         ));
                 TemplateMessage templateMessage = new TemplateMessage("Menu alt text", buttonsTemplate);
                 this.reply(replyToken, templateMessage);
+                break;
+            }
+            case "bill": {
+                this.reply(
+                        replyToken,
+                        Arrays.asList(new TextMessage("Your bill for the period 01/03/17 to 31/03/17 "),
+                                      new TextMessage("Your amount due is THB 12,000.00" ))
+                                        );
                 break;
             }
             case "carousel": {
