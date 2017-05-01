@@ -328,14 +328,7 @@ public class KitchenSinkController {
                                 new URIAction("Go to biller website",
                                         "http://www.siamkubota.co.th"),
                                 new MessageAction("Show Latest Bill",
-                                                "Show me my bill"),
-                                new PostbackAction("Say hello1",
-                                        "hello こんにちは"),
-                                new PostbackAction("言 hello2",
-                                        "test data1",
-                                        "test text1"),
-                                new MessageAction("Say message",
-                                        "Rice=米")
+                                                "Show me my bill")
                         ));
                 TemplateMessage templateMessage = new TemplateMessage("Menu alt text", buttonsTemplate);
                 this.reply(replyToken, templateMessage);
