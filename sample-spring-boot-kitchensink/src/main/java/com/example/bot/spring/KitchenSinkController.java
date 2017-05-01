@@ -341,7 +341,7 @@ public class KitchenSinkController {
                         replyToken,
                         Arrays.asList(new TextMessage("Your bill for the period 01/03/17 to 31/03/17 "),
                                       new TextMessage("Your amount due is THB 12,000.00" ),
-                                      new ImageMessage(imageUrl ,imageUrl_pre)
+                                      new ImageMessage(imageUrl_pre ,imageUrl_pre)
                                         ));
                 break;
             }
