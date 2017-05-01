@@ -350,7 +350,7 @@ public class KitchenSinkController {
                 String imageUrl = createUri("/static/buttons/barcode_lara_1.jpg");
                 this.reply(
                         replyToken,
-                        new ImageMessage(imageUrl_pre ,imageUrl_pre)s
+                        new ImageMessage(imageUrl_pre ,imageUrl_pre);
                         );
                 break;
             }
