@@ -335,11 +335,12 @@ public class KitchenSinkController {
                 break;
             }
             case "bill": {
+                String imageUrl = createUri("/static/buttons/bar1.jpg");
                 this.reply(
                         replyToken,
                         Arrays.asList(new TextMessage("Your bill for the period 01/03/17 to 31/03/17 "),
                                       new TextMessage("Your amount due is THB 12,000.00" ),
-                                      new ImageMessage(createUri("/static/buttons/barcode_lara_1.jpg"), createUri("/static/buttons/barcode_lara_1.jpg"))
+                                      new ImageMessage(imageUrl ,imageUrl)
                                         ));
                 break;
             }
