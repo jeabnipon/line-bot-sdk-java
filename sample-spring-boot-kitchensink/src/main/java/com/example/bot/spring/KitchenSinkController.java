@@ -321,13 +321,13 @@ public class KitchenSinkController {
                         "Menu Buttons",
                         "Please select following menu",
                         Arrays.asList(
-                                new URIAction("Go to line.me",
+                                new URIAction("Go to biller website",
                                         "http://www.siamkubota.co.th"),
                                 new PostbackAction("Say hello1",
                                         "hello こんにちは"),
                                 new PostbackAction("言 hello2",
-                                        "hello こんにちは",
-                                        "hello こんにちは"),
+                                        "test data1",
+                                        "test text1"),
                                 new MessageAction("Say message",
                                         "Rice=米")
                         ));
