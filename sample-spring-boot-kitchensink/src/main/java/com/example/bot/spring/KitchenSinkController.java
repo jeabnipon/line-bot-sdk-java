@@ -335,7 +335,7 @@ public class KitchenSinkController {
                 break;
             }
             case "bill": {
-                String imageUrl_pre = "https://drive.google.com/file/d/0BzyyaXu_KdJKcXY0MWhYbWtkZWM/view";
+                String imageUrl_pre = "https://drive.google.com/open?id=0BzyyaXu_KdJKcXY0MWhYbWtkZWM";
                 String imageUrl = createUri("/static/buttons/barcode_lara_1.jpg");
                 this.reply(
                         replyToken,
@@ -346,11 +346,11 @@ public class KitchenSinkController {
                 break;
             }
             case "barcode": {
-                String imageUrl_pre = "https://drive.google.com/file/d/0BzyyaXu_KdJKcXY0MWhYbWtkZWM/view";
+                String imageUrl_pre = createUri("/static/buttons/bar1.jpg");
                 String imageUrl = createUri("/static/buttons/barcode_lara_1.jpg");
                 this.reply(
                         replyToken,
-                        new ImageMessage(imageUrl_pre ,imageUrl_pre)
+                        new ImageMessage(imageUrl_pre ,imageUrl_pre)s
                         );
                 break;
             }
