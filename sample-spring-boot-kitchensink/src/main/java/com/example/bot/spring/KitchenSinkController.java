@@ -337,18 +337,19 @@ public class KitchenSinkController {
                 break;
             }
             case "bill": {
-                String imageUrl_pre = "https://drive.google.com/open?id=0BzyyaXu_KdJKcXY0MWhYbWtkZWM";
-                String imageUrl = createUri("/static/buttons/barcode_lara_1.jpg");
+                //String imageUrl_pre = "https://drive.google.com/open?id=0BzyyaXu_KdJKcXY0MWhYbWtkZWM";
+                String imageUrl_pre = createUri("/static/rich/bar1.jpg");
+                String imageUrl = createUri("/static/rich/barcode_lara_1.jpg");
                 this.reply(
                         replyToken,
                         Arrays.asList(new TextMessage("Your bill for the period 01/03/17 to 31/03/17 "),
                                       new TextMessage("Your amount due is THB 12,000.00" ),
-                                      new ImageMessage(imageUrl_pre ,imageUrl_pre)
+                                      new ImageMessage(imageUrl ,imageUrl_pre)
                                         ));
                 break;
             }
             case "barcode": {
-                String imageUrl_pre = createUri("/static/buttons/bar1.jpg");
+                String imageUrl_pre = createUri("/static/rich/bar1.jpg");
                 String imageUrl = createUri("/static/buttons/barcode_lara_1.jpg");
                 this.reply(
                         replyToken,
