@@ -328,7 +328,9 @@ public class KitchenSinkController {
                                 new URIAction("Go to biller website",
                                         "http://www.siamkubota.co.th"),
                                 new MessageAction("Show Latest Bill",
-                                                "Show me my bill")
+                                                "Show me my bill"),
+                                new URIAction("Bill's Barcode",
+                                        "https://drive.google.com/open?id=0BzyyaXu_KdJKcXY0MWhYbWtkZWM")
                         ));
                 TemplateMessage templateMessage = new TemplateMessage("Menu alt text", buttonsTemplate);
                 this.reply(replyToken, templateMessage);
