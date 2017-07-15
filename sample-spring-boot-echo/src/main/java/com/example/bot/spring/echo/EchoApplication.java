@@ -24,22 +24,22 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 //import java.util.concurrent.ExecutionException;
 
-/*
+
 import com.linecorp.bot.model.profile.UserProfileResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-*/
+
 import com.linecorp.bot.client.LineMessagingClient;
 //import com.linecorp.bot.client.LineMessagingService;
-//import com.linecorp.bot.model.ReplyMessage;
+import com.linecorp.bot.model.ReplyMessage;
 
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
-//import com.linecorp.bot.model.message.TextMessage;
-// com.linecorp.bot.model.message.Message;
-//import com.linecorp.bot.model.response.BotApiResponse;
+import com.linecorp.bot.model.message.TextMessage;
+import com.linecorp.bot.model.message.Message;
+import com.linecorp.bot.model.response.BotApiResponse;
 
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
